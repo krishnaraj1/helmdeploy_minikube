@@ -1,4 +1,4 @@
-# Deliverybot Helm Example1
+# Deliverybot Helm Example
 
 This is an example of deploying to Helm using GitHub actions.
 [View the guide.](https://deliverybot.dev/docs/integrations/action-helm/)
