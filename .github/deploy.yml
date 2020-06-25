@@ -1,0 +1,13 @@
+# Automatic deployment to a staging environment on every push to master.
+dev:
+  auto_deploy_on: refs/heads/master
+  required_contexts: ["build"]
+  environment: dev
+  description: 'Dev'
+  payload:
+    value_files: ["./config/dev.yml", "./config/_common.yml"]
+    release: dev-myapp
+    namespace: nha
+    track: stable
+    values:
+      replicaCount: 1
