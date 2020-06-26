@@ -1,5 +1,5 @@
 env:
 - name: ENVIRONMENT
   value: dev
-- name: KUBECONFIG_FILE: '
+- name: KUBECONFIG_FILE
   value: ${{ secrets.KUBECONFIG }}'
