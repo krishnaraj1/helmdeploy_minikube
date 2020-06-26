@@ -19,5 +19,3 @@ jobs:
         chart: 'app'
         namespace: 'nha'
         helm: 'helm3'
-      env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
