@@ -9,9 +9,11 @@ jobs:
       uses: 'actions/checkout@v1'
     
     - name: Install kubectl
-      run: "apt-get update && sudo apt-get install -y apt-transport-https gnupg2 && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -"
-    - run: "echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' |  tee -a /etc/apt/sources.list.d/kubernetes.list"
-    - run: "apt-get update && apt-get install -y kubectl"
+      run: "sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -"
+    - run: "sudo echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' | sudo  tee -a /etc/apt/sources.list.d/kubernetes.list"
+    - run: "sudo apt-get update && sudo apt-get install -y kubectl"
+    - run: "mkdir ~/.kub && echo ${{ secrets.KUBECONFIG }} > ~/.kube/config"
+    - run: "kubectl get pods"
       
     - name: Install Helm
       run: "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && chmod 700 get_helm.sh &&./get_helm.sh"
