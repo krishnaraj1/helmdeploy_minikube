@@ -13,7 +13,7 @@ jobs:
     - run: "sudo echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' | sudo  tee -a /etc/apt/sources.list.d/kubernetes.list"
     - run: "sudo apt-get update && sudo apt-get install -y kubectl && mkdir ~/.kube"
       
-    - run: echo $KUBE_CONFIG_DATA > ~/.kube/config &&  cat ~/.kube/config
+    - run: echo $KUBE_CONFIG_DATA > ~/.kube/config &&  cat ~/.kube/config | base64 -D
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
     - run: "kubectl get pods"
